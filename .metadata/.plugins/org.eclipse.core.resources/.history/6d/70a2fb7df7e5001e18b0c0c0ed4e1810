@@ -1,0 +1,74 @@
+package Stepdefinition;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ActitimeLogin {
+	WebDriver driver;
+
+	@Given("admin is on login page")
+	public void admin_is_on_login_page() {
+		WebDriverManager.chromedriver().setup();
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.get("http://localhost:8080/login.do");
+
+	}
+
+	@When("user enter admin and manager")
+	public void user_enter_admin_and_manager() {
+		driver.findElement(By.name("username")).sendKeys("admin");
+		driver.findElement(By.name("pwd")).sendKeys("manager");
+
+	}
+
+	@When("click on login")
+	public void click_on_login() {
+		driver.findElement(By.id("loginButton")).click();
+
+	}
+
+	@Then("user is navigate to actitime page")
+	public void user_is_navigate_to_actitime_page() {
+
+		Assert.assertEquals(driver.getTitle(), "actiTIME - Enter Time-Track");
+	}
+
+	@When("user enter admi and password")
+	public void user_enter_admi_and_password() {
+		driver.findElement(By.name("username")).sendKeys("admi");
+		driver.findElement(By.name("pwd")).sendKeys("manager");
+
+	}
+
+	@Then("user get a warning messages")
+	public void user_get_a_warning_messages() {
+		Assert.assertEquals("//span[text()='Username or Password is invalid. Please try again.']",
+				"Username or Password is invalid. Please try again.");
+
+	}
+	@When("user enter admin and passwor")
+	public void user_enter_admin_and_passwor() {
+		driver.findElement(By.name("username")).sendKeys("admin");
+		driver.findElement(By.name("pwd")).sendKeys("manage");
+	}
+
+	@When("user not enter username and password")
+	public void user_not_enter_username_and_password() {
+		driver.findElement(By.name("username")).sendKeys(Keys.ENTER);
+		driver.findElement(By.name("pwd")).sendKeys(Keys.ENTER);
+	}
+
+
+}

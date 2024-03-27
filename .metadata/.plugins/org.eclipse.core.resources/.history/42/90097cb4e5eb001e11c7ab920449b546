@@ -1,0 +1,26 @@
+package program.Strinng;
+
+public class CountLowerAndUppercaseletter {
+	
+	public static void main(String[] args) {
+		String string ="Good Morning, Welcome To Automation";
+		int lowercase = 0;
+		int uppercase = 0;
+		String[] S2 = string.split(" ");
+		
+		
+		for (int i = 0; i < S2.length; i++) {
+			char ch = string.charAt(i);
+			if(ch>= 'A' && ch<='Z') {
+				uppercase++;
+			}
+			else {
+				lowercase++;
+			}
+		}
+		
+		System.out.println("No of uppercase letter : "+uppercase);
+		System.out.println("No of lowercase letter : "+lowercase);
+	}
+
+}

@@ -1,0 +1,15 @@
+Feature: customer
+
+  Scenario Outline: creating customer
+    Given user is on actitime login page
+    When login with valid username and password credentials
+    And user click on login
+    Then user click on task page
+    And click on add new in task page
+    Then user create new <customer> and <customerdes>
+      | customername | customerdescription |
+      | customer01   | customer01_des      |
+      | customer02   | customer02_des      |
+      | customer03   | customer03_des      |
+      | customer04   | customer04_des      |
+    And click on  customer button

@@ -1,0 +1,41 @@
+Feature: feature to validate login functionality of application
+
+  Scenario Outline:  Check the login with valid credentials
+    Given user is on login page
+    When user enter <username> and <password>
+    And click on login button
+    Then user is navigate to homepage
+    Examples:
+|username|password|
+|admin|manager|
+    
+
+  Scenario Outline: Check the login with invalid credentials
+    Given user is on login page
+    When user enter <invalid username> and <valid password>
+    And click on login button
+    Then user get a warning message
+    
+     Examples:
+|invalid username|valid password|
+|admi|password|
+
+  Scenario: Check the login with invalid credentials
+    Given user is on login page
+    When user enter <valid username> and <invalid password>
+    And click on login button
+    Then user get a warning message
+    
+     Examples:
+|valid username|invalid password|
+|admin|passwor|
+
+  Scenario: Check the login with withblank fields
+    Given user is on login page
+    When user not enter <username> and <password>
+    And click on login button
+    Then user get a warning message
+    
+     Examples:
+|username|password|
+|||

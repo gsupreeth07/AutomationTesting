@@ -1,0 +1,7 @@
+Feature: Google Search
+
+  Scenario: Search for DigiSoft
+    Given user is on Google Homepage
+    When user enter "IBM" in searchBox
+    
+    And user print all the hyperlinks

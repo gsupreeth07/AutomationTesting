@@ -1,0 +1,8 @@
+Feature: Google Search
+
+  Scenario: Search for login
+    Given user is on login page
+    When user enter username as digi
+    And click on Search button on page
+    Then user Navigate to results 
+    

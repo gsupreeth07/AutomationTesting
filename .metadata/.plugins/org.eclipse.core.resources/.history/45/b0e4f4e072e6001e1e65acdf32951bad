@@ -1,0 +1,127 @@
+package org.Selenium.util;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class WebdriverUtil {
+	WebDriver driver;
+	
+	public  WebDriver getdriver(String type) {
+		System.out.println("creating a driver object ");
+		
+		switch (type) {
+		case "chrome" : WebDriverManager.chromedriver().setup();
+		driver = new ChromeDriver();
+		
+			break;
+		case "ff" : WebDriverManager.firefoxdriver().setup();
+		driver = new FirefoxDriver();
+		
+			break;
+			
+		case "edge" : WebDriverManager.edgedriver().setup();
+		driver = new EdgeDriver();
+		
+			break;
+			
+
+		default:
+			driver=null;
+			break;
+		}
+		
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		return driver;
+	}
+	
+	public  WebElement getElement(String identifer, String value) {
+		WebElement ele= null;
+		switch (identifer.toLowerCase()) {
+		case "id":
+			driver.findElement(By.id(value));
+			
+			break;
+			
+		case "name":
+			driver.findElement(By.name(value));
+			
+			break;
+			
+		case "classname":
+			driver.findElement(By.className(value));
+			
+			break;
+			
+		case "partiallinktext":
+			driver.findElement(By.partialLinkText(value));
+			
+			break;
+			
+		case "linktext":
+			driver.findElement(By.linkText(value));
+			
+			break;
+			
+		case "xpath":
+			driver.findElement(By.xpath(value));
+			
+			break;
+			
+		case "css":
+			driver.findElement(By.cssSelector(value));
+			
+			break;
+			
+		case "tagname":
+			driver.findElement(By.tagName(value));
+			
+			break;
+			
+		
+		default:
+			System.out.println("please select above identifier");
+			break;
+		}
+		 return ele;
+	}
+	
+	
+	public void click(String identifer, String value) {
+		System.out.println(" perform click on element");
+		getElement(identifer, value).click();
+	}
+	
+	public void type(String identifer, String value, String enter) {
+		System.out.println("performing type operator on  the element");
+		getElement(identifer, value).sendKeys(enter);
+	}
+	
+	public void cleartext(String identifer, String value) {
+		System.out.println("clearing the text");
+		getElement(identifer, value).clear();
+	}
+	
+	public void getText(String identifer, String value) {
+		getElement(identifer, value).getText();
+		
+	}
+	
+	public void getTitle() {
+		driver.getTitle();
+		
+	}
+	
+	
+	
+	
+
+}

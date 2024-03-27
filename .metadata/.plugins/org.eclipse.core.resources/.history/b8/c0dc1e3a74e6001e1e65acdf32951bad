@@ -1,0 +1,22 @@
+package org.Selenium.util;
+
+import junit.framework.Assert;
+
+public class ActitimeUtil extends WebdriverUtil {
+
+	
+	public void launch(String url) {
+		System.out.println("launching the application");
+		driver.get(url);
+	}
+	
+	public void login(String name , String password) {
+		type("id","name",name);
+		type("name","pwd",password);
+	}
+	public void loginbutton() {
+		click("id","loginButton");
+	}
+	
+	
+}

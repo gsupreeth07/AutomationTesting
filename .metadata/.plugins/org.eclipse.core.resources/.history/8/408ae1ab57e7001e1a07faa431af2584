@@ -1,0 +1,26 @@
+package testRunner;
+
+import org.junit.runner.RunWith;
+
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+
+
+@RunWith(Cucumber.class)
+@CucumberOptions(features = {"src/test/java/feature/Customer.feature"},
+
+glue = {"stepfefinition"},
+
+dryRun = false,
+plugin = {"json=target/json/report.json",
+          "html=target/html/report.html"}
+
+		)
+
+
+public class Runner {
+	
+	
+
+
+}

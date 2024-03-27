@@ -1,0 +1,67 @@
+package stepdefinition;
+
+import java.util.Date;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
+import io.cucumber.java.After;
+import io.cucumber.java.AfterAll;
+import io.cucumber.java.AfterStep;
+import io.cucumber.java.Before;
+import io.cucumber.java.BeforeAll;
+import io.cucumber.java.BeforeStep;
+import io.cucumber.java.Scenario;
+
+public class BDDExtentsReports {
+	
+	public  ExtentReports reports = null;
+	public  ExtentTest test = null;
+	
+	@Before
+	public void conigureReports()
+	{
+		String date = new Date().toString().replace(":", "_").replace(" " , "_");
+		ExtentSparkReporter spark = new ExtentSparkReporter("reports/ExtentReport_" + date + ".html");
+		reports = new ExtentReports();
+		reports.attachReporter(spark);
+
+		System.out.println("Creating Repoerts");
+	}
+	
+	@After
+	public void savingReports()
+	{
+		reports.flush();
+	}
+	
+	@Before
+	public void setup(Scenario sc) {
+		test=reports.createTest(sc.getName());
+		
+	}
+	@After
+	public void teardowm(Scenario sc) {
+		if (sc.isFailed()) {
+			test.log(Status.FAIL, "failed");
+		}
+		else {
+			test.log(Status.PASS, "passed");
+		}
+			
+	}
+	@AfterStep
+	public void stepstaus(Scenario sc)
+	{
+		test.log(Status.INFO, sc.getLine()+" excuting from "+sc.getName());
+	}
+	
+	@BeforeStep
+	public void status(Scenario sc) {
+		test.log(Status.INFO, sc.getLine()+" excuting from "+sc.getName());
+		
+	}
+
+}

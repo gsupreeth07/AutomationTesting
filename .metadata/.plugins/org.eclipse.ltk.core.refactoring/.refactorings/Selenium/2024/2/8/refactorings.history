@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;ATUsingExcelFile.java&apos; to &apos;Selenium/src/test/java/org.Selenium.test&apos;&#x0D;&#x0A;- Original project: &apos;Selenium&apos;&#x0D;&#x0A;- Destination element: &apos;Selenium/src/test/java/org.Selenium.test&apos;&#x0D;&#x0A;- Original element: &apos;org.Selenium.test.ATUsingExcelFile.java&apos;" description="Copy compilation unit" destination="/src\/test\/java=/optional=/true=/=/maven.pomderived=/true=/=/test=/true=/&lt;org.Selenium.test" element1="/src\/test\/java=/optional=/true=/=/maven.pomderived=/true=/=/test=/true=/&lt;org.Selenium.test{ATUsingExcelFile.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1708597818147" units="1" version="1.0"/>
+</session>

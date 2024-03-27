@@ -1,0 +1,40 @@
+Feature: customer
+
+  Scenario Outline: creating customer
+    Given user is on actitime login page
+    When user enter "username" and "password"
+    And user click on login button
+    Then user click on task
+    And click on add new
+    And click on new customer
+    Then user enter <customer_name> and <customer_description>
+    And click on create customer
+
+    Examples: 
+      | customer_name | customer_description |
+      | customer01    | customer01_des       |
+      | customer02    | customer02_des       |
+      | customer03    | customer03_des       |
+      | customer04    | customer04_des       |
+      | customer05    | customer05_des       |
+      
+       Scenario Outline: creating new customer 
+    Given user is on actitime login page
+    When user enter "username" and "password"
+    And user click on login button
+    Then user click on task
+    And click on add new
+    And click on new customer
+    Then user enter <customer_name> and <customer_description>
+    And click on create customer
+
+    Examples: 
+      | customer_name | customer_description |
+      | customer06    | customer06_des       |
+      | customer07    | customer07_des       |
+      | customer08    | customer08_des       |
+      | customer09    | customer09_des       |
+      | customer10    | customer10_des       |
+      
+
+     

@@ -1,0 +1,56 @@
+package Stepdefinition;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ActitimeLogin {
+    WebDriver driver;
+	@Given("admin is on login page")
+	public void admin_is_on_login_page() {
+		 WebDriverManager.chromedriver().setup();
+			driver= new ChromeDriver();
+			driver.manage().window().maximize();
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			driver.get("http://localhost:8080/login.do");
+	    
+	}
+
+	@When("user enter admin and manager")
+	public void user_enter_admin_and_manager() {
+	   driver.findElement(By.id("username")).sendKeys(null);
+	    
+	}
+
+	@When("click on login")
+	public void click_on_login() {
+	   
+	    
+	}
+
+	@Then("user is navigate to actitime page")
+	public void user_is_navigate_to_actitime_page() {
+	   
+	    
+	}
+
+	@When("user enter admi and password")
+	public void user_enter_admi_and_password() {
+	   
+	    
+	}
+
+	@Then("user get a warning messages")
+	public void user_get_a_warning_messages() {
+	   
+	    
+	}
+
+}

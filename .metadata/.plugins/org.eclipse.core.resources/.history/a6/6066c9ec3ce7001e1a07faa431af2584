@@ -1,0 +1,57 @@
+package stepdefinition;
+
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class CreateCustomer {
+
+	@Given("user is on application login page")
+	public void user_is_on_application_login_page() {
+	    
+	    
+	}
+
+	@When("user enter valid {string} and {string}")
+	public void user_enter_and_un(String string, String string2) {
+	    
+	    
+	}
+
+	@And("user clicks on login button")
+	public void user_clicks_on_login_button() {
+	    
+	    
+	}
+
+	@Then("user click on task")
+	public void user_click_on_task() {
+	    
+	    
+	}
+
+	@And("click on add new")
+	public void click_on_add_new() {
+	    
+	    
+	}
+
+	@And("click on new customer")
+	public void click_on_new_customer() {
+	    
+	    
+	}
+
+	@Then("user enter {} and {}")
+	public void user_enter_customer01_and_customer01_des(String custome_name, String Customer_des) {
+	    
+	    
+	}
+
+	@And("click on create customer")
+	public void click_on_create_customer() {
+	    
+	    
+}
+}

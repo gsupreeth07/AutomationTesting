@@ -1,0 +1,63 @@
+package stepdefinition;
+
+import java.util.List;
+import java.util.Map;
+
+import org.openqa.selenium.By;
+
+import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class CustomerWithDT extends ActitimeUtil {
+	
+
+@Given("user is on actitime login page")
+public void user_is_on_actitime_login_page() {
+	getdriver("chrome");
+    launch("http://localhost:8080/login.do");
+    
+}
+
+@When("login with valid username and password credentials")
+public void login_with_valid_username_and_password_credentials() {
+    
+	login("admin", "manager");
+}
+
+@When("user click on login")
+public void user_click_on_login() {
+	click("id", "loginButton");
+    
+}
+
+@Then("user click on task page")
+public void user_click_on_task_page() {
+	 getElement("xpath", "//a[contains(@href,'tasks')]").click();
+    
+}
+
+@Then("click on add new in task page")
+public void click_on_add_new_in_task_page() {
+	 clickOnAddNewButton();
+	 newCustomer();
+}
+
+
+@Then("user create new <customer> and <customerdes>")
+public void user_create_new_customer_and_customerdes(DataTable dataTable) {
+   
+    
+	  List<Map<String, String>> data = dataTable.asMaps();
+    driver.findElement(By.xpath("input[@id='customerLightBox_nameField']")).sendKeys(data.get(0).get("customer"));
+    driver.findElement(By.xpath("textarea[@id='customerLightBox_descriptionField']")).sendKeys(data.get(0).get("customerdes"));
+}
+
+@Then("click on  customer button")
+public void click_on_customer_button() {
+	 click("xpath", "//span[text()='Create Customer']");
+    
+}
+
+}

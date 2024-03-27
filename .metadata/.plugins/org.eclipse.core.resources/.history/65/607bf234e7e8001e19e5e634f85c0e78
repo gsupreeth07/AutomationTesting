@@ -1,0 +1,42 @@
+package stepdefinition;
+
+import java.util.Date;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
+import io.cucumber.java.After;
+import io.cucumber.java.AfterAll;
+import io.cucumber.java.AfterStep;
+import io.cucumber.java.Before;
+import io.cucumber.java.BeforeAll;
+import io.cucumber.java.BeforeStep;
+import io.cucumber.java.Scenario;
+
+public class BDDExtentsReports {
+	
+	public static ExtentReports reports ;
+	public static ExtentTest test ;
+	
+	@Before
+	public void conigureReports()
+	{
+		String date = new Date().toString().replace(":", "_").replace(" " , "_");
+		ExtentSparkReporter spark = new ExtentSparkReporter("reports/ExtentReport_" + date + ".html");
+		reports = new ExtentReports();
+		reports.attachReporter(spark);
+
+		System.out.println("Creating Repoerts");
+	}
+	
+	@After
+	public void savingReports()
+	{
+		reports.flush();
+	}
+	
+	}
+
+

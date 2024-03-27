@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Default suite" guice-stage="DEVELOPMENT">
+	<parameter name="url" value="http://localhost/login.do"/>
+	<parameter name="userName" value="admin"/>
+	<parameter name="password" value="manager"/>
+	<parameter name="timeout" value="30"/>
+	<parameter name="browser" value="chrome"/>
+  <test thread-count="5" name="Default test" verbose="2">
+    <classes>
+      <class name="org.Selenium.test.ATUsingTestNg"/>
+    </classes>
+  </test> <!-- Default test -->
+</suite> <!-- Default suite -->
+            
